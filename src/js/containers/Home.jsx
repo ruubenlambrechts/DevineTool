@@ -1,7 +1,10 @@
 import React from 'react';
+import Uitstappen from '../components/Uitstappen';
 
 const Home = () => (
-  <p>Home ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, sit.</p>
+  <section>
+    <Uitstappen />
+  </section>
 );
 
 export default Home;

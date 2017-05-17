@@ -5,11 +5,14 @@ import {render} from 'react-dom';
 import App from './containers/App';
 
 import store from './store/';
+import {Provider} from 'mobx-react';
 
 const init = () => {
 
   render(
-    <App store={store} />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.querySelector(`.react-mount`)
   );
 

@@ -1,29 +1,31 @@
 import React from 'react';
 
-import {PropTypes as MPropTypes, observer} from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 
 import Home from './Home';
+import Add from './Add';
 
-const App = ({store}) => {
-
-  const {name} = store
+const App = () => {
 
   return (
     <section>
 
-      {process.env.NODE_ENV !== `production` ? <DevTools/> : null}
+      {process.env.NODE_ENV !== `production` ? <DevTools /> : null}
 
       <header>
-        <h1>Hello, {name}</h1>
+        <h1>Devine Uitstap Feedbackssysteem</h1>
       </header>
 
       <Router>
         <section>
           <Route
-            exact path='/'
+            exact path='/home'
             component={Home}
+          />
+          <Route
+            exact path='/add'
+            component={Add}
           />
         </section>
       </Router>
@@ -33,8 +35,4 @@ const App = ({store}) => {
 
 };
 
-App.propTypes = {
-  store: MPropTypes.observableObject.isRequired
-};
-
-export default observer(App);
+export default App;
