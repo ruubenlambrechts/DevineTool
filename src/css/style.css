@@ -36,6 +36,12 @@ label {
   margin-bottom: 1rem;
 }
 
+.no_feedback {
+  margin: 4rem 0;
+  background-color: #edeced;
+  padding: 1.5rem;
+}
+
 .add {
   display: flex;
   flex-direction: column;

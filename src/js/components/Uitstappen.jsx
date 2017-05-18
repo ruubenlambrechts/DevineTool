@@ -14,7 +14,7 @@ const Uitstappen = ({uitstappen}) => {
       <Link to='/add' className='button_link'>
         geef feedback
       </Link>
-      <p>no uitstappen yet</p>
+      <p className='no_feedback'>Nog geen feedback</p>
     </section>
   );
 

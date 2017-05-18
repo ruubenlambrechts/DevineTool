@@ -64,7 +64,7 @@ const Add = ({store}) => {
         </div>
 
         <div className='form_item'>
-          <label htmlFor='positive'>Positive*</label>
+          <label htmlFor='positive'>Positief*</label>
           <input
             ref={$positive => $positiveArray = $positive}
             type='text'
@@ -75,7 +75,7 @@ const Add = ({store}) => {
         </div>
 
         <div className='form_item'>
-          <label htmlFor='negative'>Negative*</label>
+          <label htmlFor='negative'>Negatief*</label>
           <input
             ref={$negative => $negativeArray = $negative}
             type='text'
@@ -86,7 +86,7 @@ const Add = ({store}) => {
         </div>
 
         <div className='form_item'>
-          <label htmlFor='content'>Commentaar</label>
+          <label htmlFor='content'>Extra Commentaar</label>
           <textarea
             ref={$content => $textarea = $content}
             cols='60' rows='4'

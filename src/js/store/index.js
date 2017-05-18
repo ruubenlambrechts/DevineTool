@@ -90,6 +90,18 @@ class Store {
     this.naam = ``;
   }
 
+  @action
+  remove = _id => {
+    uitstapAPI.delete(_id)
+      .then(() => this.remove(_id));
+  }
+
+  @action
+  _remove = id => {
+    this.uitstappen.find(t => t.id === id).deconstructor();
+    this.uitstappen = this.uitstappen.filter(t => t.id !== id);
+  }
+
 }
 
 const store = new Store();
