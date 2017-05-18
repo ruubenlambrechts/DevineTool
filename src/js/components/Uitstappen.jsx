@@ -1,28 +1,42 @@
 import React from 'react';
 import {inject, observer, PropTypes} from 'mobx-react';
 
+import {
+  Link
+} from 'react-router-dom';
+
 import Uitstap from './Uitstap/';
 
 const Uitstappen = ({uitstappen}) => {
 
   if (uitstappen.length === 0) return (
-    <div>no uitstappen yet</div>
+    <section>
+      <Link to='/add' className='button_link'>
+        geef feedback
+      </Link>
+      <p>no uitstappen yet</p>
+    </section>
   );
 
   return (
-    <ul className='Uitstappen'>
-      {
-        uitstappen.map(
-          t => (
-            <Uitstap
-              {...t}
-              // timeAgo={t.timeAgo}
-              key={t.id}
-            />
+    <section>
+      <Link to='/add' className='button_link'>
+        geef feedback
+      </Link>
+      <div className='uitstappen'>
+        {
+          uitstappen.map(
+            t => (
+              <Uitstap
+                {...t}
+                // timeAgo={t.timeAgo}
+                key={t._id}
+              />
+            )
           )
-        )
-      }
-    </ul>
+        }
+      </div>
+    </section>
   );
 };
 

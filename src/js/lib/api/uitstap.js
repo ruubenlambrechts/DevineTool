@@ -1,15 +1,16 @@
 import fetch from 'isomorphic-fetch';
 
-const url = `/api/uitstappen`;
+const url = `/api/uitstaps`;
 
 export default {
 
-  create: (content, naam, datum, uitstap)  => {
+  create: (content, naam, uitstap, positive, negative)  => {
     const method = `POST`;
     const body = new FormData();
-    body.append(`content`, content);
-    body.append(`naam`, naam);
-    body.append(`datum`, datum);
+    if (content) body.append(`content`, content);
+    if (naam) body.append(`naam`, naam);
+    body.append(`positive`, positive);
+    body.append(`negative`, negative);
     body.append(`uitstap`, uitstap);
 
     return fetch(url, {method, body})

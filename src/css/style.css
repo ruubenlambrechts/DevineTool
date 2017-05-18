@@ -2,19 +2,143 @@
 
 body {
   font-family: Roboto;
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin: 2rem;
 }
 
 header {
   margin: 2rem 0;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
+  padding-bottom: 2rem;
+}
+
+input, textarea, select {
+  font-size: 2rem;
+  padding: .5rem;
+  border: none;
+}
+
+select {
+  height: 4rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .add {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  background-color: #edeced;
+}
+
+.form {
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+  }
+
+  &_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+}
+
+.uitstappen {
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.comment {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  background-color: #edeced;
+
+  &_item {
+    margin: 1rem 2rem;
+  }
+
+  &_title {
+    font-weight: bold;
+    background-color: #ddd;
+    display: block;
+    padding: 1rem;
+  }
+
+  &_feedback {
+    padding-bottom: .8rem;
+  }
+
+  &_plus {
+    border-radius: 100%;
+    padding: .2rem .8rem;
+    background-color: aqua;
+  }
+
+  &_minus {
+    border-radius: 100%;
+    padding: .2rem 1.05rem;
+    background-color: grey;
+  }
+}
+
+.button {
+
+  &_link {
+    background-color: aqua;
+    padding: 1rem 4rem;
+    border-radius: 1rem;
+    width: 100%;
+    display: inline;
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+  }
+
+  &_link:hover {
+    background-color: #00ebed;
+  }
+
+  &_submit {
+    background-color: aqua;
+    padding: 1rem 4rem;
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 1rem;
+  }
+
+  &_submit:hover {
+    background-color: #00ebed;
+  }
+
+  &_submit:disabled {
+    background-color: grey;
+  }
+
+  &_back {
+    background-color: black;
+    color: white;
+  }
+
+  &_back:hover {
+    background-color: #303030;
+  }
 }

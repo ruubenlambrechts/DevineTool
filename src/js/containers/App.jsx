@@ -20,7 +20,7 @@ const App = () => {
       <Router>
         <section>
           <Route
-            exact path='/home'
+            exact path='/'
             component={Home}
           />
           <Route

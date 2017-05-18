@@ -1,31 +1,27 @@
-import {
-  observable,
-} from 'mobx';
-
-export default class uitstap {
+export default class Uitstap {
 
   content = ``
-  datum = ``
   uitstap = ``
   naam = ``
+  _id = ``
+  positive = ``
+  negative = ``
+  isActive = true
   modified = ``
   created = ``
-  id = ``
-  isActive = true
 
-  @observable
-  timeAgo = ``
+  // @observable
+  // timeAgo = ``
 
-  constructor({
-    content, datum, uitstap, naam, isActive, modified, created, id
-  }) {
+  constructor({content, uitstap, naam, positive, negative, isActive, _id, created, modified}) {
     this.content = content;
-    this.datum = datum;
     this.uitstap = uitstap;
+    this.positive = positive;
+    this.negative = negative;
+    this._id = _id;
     this.naam = naam;
     this.modified = modified;
     this.created = created;
-    this.id = id;
     this.isActive = isActive;
   }
 

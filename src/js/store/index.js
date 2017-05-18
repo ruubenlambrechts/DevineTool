@@ -1,9 +1,8 @@
 import {observable, action, computed} from 'mobx';
 
 import Uitstap from '../models/Uitstap';
-import slice from '../lib/slice';
 
-import uitstapAPI from '../lib/api/uitstap.js';
+import uitstapAPI from '../lib/api/uitstap';
 
 class Store {
 
@@ -11,40 +10,23 @@ class Store {
   uitstap = ``
 
   @observable
-  uitstappen = [
-    {
-      id: `1`,
-      uitstap: `Berlijn`,
-      datum: 2017,
-      positive: [
-        `zeer leuk`, `hostel`, `hoera`
-      ],
-      negative: [
-        `ontbijt`, `duits?`, `boe`
-      ],
-      naam: `Ruuben`,
-      content: `is dit wat content?`
-    },
-    {
-      id: `2`,
-      uitstap: `Berlijn`,
-      datum: 2017,
-      positive: [
-        `zeer leuk`, `hostel`, `hoera`
-      ],
-      negative: [
-        `ontbijt`, `duits?`, `boe`
-      ],
-      naam: `Ruuben`,
-      content: `is dit wat content?`
-    }
-  ]
+  content = ``
 
-  max = 200
+  @observable
+  naam = ``
+
+  @observable
+  positive = ``
+
+  @observable
+  negative = ``
+
+  @observable
+  uitstappen = []
 
   init = () => {
     uitstapAPI.read()
-      .then(d => this._add(...d.tweets));
+      .then(d => this._add(...d.uitstaps));
   }
 
   constructor() {
@@ -53,33 +35,59 @@ class Store {
 
   @computed
   get chars() {
-    return this.uitstap.length;
+    if (this.positive.length === 0 || this.negative.length === 0) {
+      return false;
+    }
+  }
+
+  add = (content, naam, uitstap, positive, negative) => {
+    uitstapAPI.create(content, naam, uitstap, positive, negative)
+      .then(uitstap => {
+        this._add(uitstap);
+      });
   }
 
   @action
-  add = (...uitstappen) => {
-
+  _add = (...uitstappen) => {
     uitstappen.forEach(u => {
-
-      if (u.length === 0) return;
-
       this.uitstappen.push(
         new Uitstap(u)
       );
 
     });
-
   }
 
   @action
-  setUitstap = tweet => {
-    this.tweet = slice(tweet, this.max);
+  setNaam = naam => {
+    this.naam = naam;
   }
 
   @action
-  remove = id => {
-    uitstapAPI.delete(id)
-      .then(() => this.remove(id));
+  setUitstap = uitstap => {
+    this.uitstap = uitstap;
+  }
+
+  @action
+  setContent = content => {
+    this.content = content;
+  }
+
+  @action
+  setPositive = positive => {
+    this.positive = positive;
+  }
+
+  @action
+  setNegative = negative => {
+    this.negative = negative;
+  }
+
+  @action
+  resetUitstap = () => {
+    this.content = ``;
+    this.positive = ``;
+    this.negative = ``;
+    this.naam = ``;
   }
 
 }
